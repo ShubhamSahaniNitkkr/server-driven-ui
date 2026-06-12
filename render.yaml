@@ -6,8 +6,8 @@ services:
     name: sdui
     runtime: node
     plan: free
-    buildCommand: npm install && npm run build -w @sdui/shared && npm run build -w @sdui/web && npm run build -w @sdui/api
-    startCommand: npm run db:seed -w @sdui/api && npm run start -w @sdui/api
+    buildCommand: NPM_CONFIG_PRODUCTION=false npm install && npm run build:render
+    startCommand: npm run start:render
     healthCheckPath: /api/v1/health
     envVars:
       - key: NODE_VERSION
