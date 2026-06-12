@@ -10,6 +10,8 @@ services:
     startCommand: npm run db:seed -w @sdui/api && npm run start -w @sdui/api
     healthCheckPath: /api/v1/health
     envVars:
+      - key: NODE_VERSION
+        value: "20.18.0"
       - key: NODE_ENV
         value: production
       - key: SERVE_STATIC
