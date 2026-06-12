@@ -4,6 +4,9 @@
 
 Build internal admin platforms, CRM systems, enterprise dashboards, and configuration-driven applications without redeploying the frontend for every page change.
 
+<img width="2238" height="1171" alt="image" src="https://github.com/user-attachments/assets/8952be8d-41d7-4bde-bb82-74e3d325ced9" />
+
+
 ## Quick Start
 
 ### Prerequisites
