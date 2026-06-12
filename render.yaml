@@ -1,0 +1,18 @@
+# Free-tier deploy: one Web Service serves API + static frontend (no paid disk).
+# Dashboard → New → Blueprint → connect this repo.
+
+services:
+  - type: web
+    name: sdui
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build -w @sdui/shared && npm run build -w @sdui/web && npm run build -w @sdui/api
+    startCommand: npm run db:seed -w @sdui/api && npm run start -w @sdui/api
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SERVE_STATIC
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true

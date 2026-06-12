@@ -14,6 +14,8 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "db:seed": "npm run db:seed -w @sdui/api",
+    "build:render": "npm run build -w @sdui/shared && npm run build -w @sdui/web && npm run build -w @sdui/api",
+    "start:render": "npm run db:seed -w @sdui/api && SERVE_STATIC=true NODE_ENV=production npm run start -w @sdui/api",
     "clean": "turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {
