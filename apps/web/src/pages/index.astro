@@ -1,0 +1,8 @@
+---
+import AppShell from '../layouts/AppShell.astro';
+import App from '../islands/App';
+---
+
+<AppShell title="Server Driven UI Platform">
+  <App client:only="react" />
+</AppShell>

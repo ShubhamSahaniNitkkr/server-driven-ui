@@ -1,0 +1,8 @@
+.stat {
+  background: var(--mantine-color-body);
+}
+
+.hint {
+  font-family: 'SF Mono', monospace;
+  word-break: break-all;
+}

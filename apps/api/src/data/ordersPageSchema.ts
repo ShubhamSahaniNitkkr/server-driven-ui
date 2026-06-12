@@ -1,0 +1,140 @@
+import type { PageSchema } from '@sdui/shared';
+
+/** Flagship SDUI use case — same route, different UI per role (server-filtered schema). */
+export const ORDERS_PAGE: PageSchema = {
+  id: 'page-orders',
+  type: 'page',
+  version: '1.0',
+  title: 'Order Fulfillment',
+  description:
+    'Schema-driven command center — buttons, tables, and workflows are defined in backend JSON, filtered per your role.',
+  path: '/orders',
+  permissions: { view: 'orders:page:view' },
+  actions: [
+    {
+      id: 'action-create-order',
+      type: 'button',
+      label: 'Create Order',
+      variant: 'filled',
+      action: { type: 'modal', payload: { schemaId: 'form-create-order' } },
+      permissions: { execute: 'orders:create' },
+      meta: { testId: 'create-order-btn' },
+    },
+    {
+      id: 'action-approve-batch',
+      type: 'button',
+      label: 'Approve Pending',
+      variant: 'outline',
+      action: {
+        type: 'notification',
+        payload: {
+          variant: 'success',
+          title: 'Batch Approval',
+          message: '3 pending orders approved (demo action from schema)',
+        },
+      },
+      permissions: { execute: 'orders:approve' },
+      meta: { testId: 'approve-orders-btn' },
+    },
+    {
+      id: 'action-export-orders',
+      type: 'button',
+      label: 'Export CSV',
+      variant: 'light',
+      action: {
+        type: 'notification',
+        payload: { variant: 'info', message: 'Export triggered — controlled by orders:export permission + exports.enabled flag' },
+      },
+      permissions: { execute: 'orders:export' },
+      featureFlag: 'exports.enabled',
+      meta: { testId: 'export-orders-btn' },
+    },
+  ],
+  layout: {
+    id: 'layout-orders',
+    type: 'section',
+    title: 'Fulfillment Operations',
+    description: 'Every element below is declared in pageSchemas.ts on the server',
+    children: [
+      {
+        id: 'orders-kpis',
+        type: 'grid',
+        columns: 4,
+        gap: 'md',
+        children: [
+          {
+            id: 'stat-orders-total',
+            type: 'stat-card',
+            title: 'Total Orders',
+            dataSource: '/api/v1/data/orders/stats/total',
+            icon: 'shopping-cart',
+            color: 'blue',
+          },
+          {
+            id: 'stat-orders-pending',
+            type: 'stat-card',
+            title: 'Awaiting Action',
+            dataSource: '/api/v1/data/orders/stats/pending',
+            icon: 'clock',
+            color: 'orange',
+          },
+          {
+            id: 'stat-orders-revenue',
+            type: 'stat-card',
+            title: 'Pipeline Value',
+            dataSource: '/api/v1/data/orders/stats/revenue',
+            icon: 'currency',
+            color: 'grape',
+          },
+          {
+            id: 'stat-orders-shipped',
+            type: 'stat-card',
+            title: 'In Transit',
+            dataSource: '/api/v1/data/orders/stats/shipped',
+            icon: 'truck',
+            color: 'teal',
+          },
+        ],
+      },
+      {
+        id: 'orders-workflow',
+        type: 'workflow-board',
+        title: 'Live Pipeline',
+        dataSource: '/api/v1/data/orders/workflow',
+        stages: [
+          { id: 'pending', label: 'Pending', status: 'pending', color: 'yellow' },
+          { id: 'processing', label: 'Processing', status: 'processing', color: 'blue' },
+          { id: 'shipped', label: 'Shipped', status: 'shipped', color: 'indigo' },
+          { id: 'delivered', label: 'Delivered', status: 'delivered', color: 'teal' },
+          { id: 'cancelled', label: 'Cancelled', status: 'cancelled', color: 'red' },
+        ],
+        permissions: { view: 'orders:read' },
+      },
+      {
+        id: 'orders-table-section',
+        type: 'card',
+        title: 'Order Registry',
+        children: [
+          {
+            id: 'orders-table',
+            type: 'table',
+            dataSource: '/api/v1/data/orders',
+            sortable: true,
+            filterable: true,
+            pagination: { pageSize: 10 },
+            columns: [
+              { id: 'col-id', header: 'Order ID', accessor: 'id', sortable: true },
+              { id: 'col-customer', header: 'Customer', accessor: 'customer', sortable: true, filterable: true },
+              { id: 'col-product', header: 'Product', accessor: 'product', sortable: true },
+              { id: 'col-amount', header: 'Amount', accessor: 'amount', sortable: true, render: 'currency' },
+              { id: 'col-status', header: 'Status', accessor: 'status', sortable: true, render: 'badge' },
+              { id: 'col-date', header: 'Created', accessor: 'created_at', sortable: true, render: 'date' },
+            ],
+            permissions: { view: 'orders:read' },
+            meta: { ariaLabel: 'Orders fulfillment table', testId: 'orders-table' },
+          },
+        ],
+      },
+    ],
+  },
+};

@@ -1,0 +1,170 @@
+/* SDUI — senior-grade design tokens */
+:root {
+  --sdui-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sdui-mono: 'SF Mono', 'Fira Code', Consolas, monospace;
+
+  --sdui-text-xs: 0.6875rem;
+  --sdui-text-sm: 0.8125rem;
+  --sdui-text-md: 0.875rem;
+  --sdui-text-base: 0.9375rem;
+  --sdui-text-lg: 1.0625rem;
+  --sdui-text-xl: 1.25rem;
+  --sdui-text-2xl: 1.5rem;
+
+  --sdui-lh-tight: 1.3;
+  --sdui-lh-normal: 1.5;
+  --sdui-lh-relaxed: 1.6;
+
+  --sdui-space-xs: 0.5rem;
+  --sdui-space-sm: 0.75rem;
+  --sdui-space-md: 1rem;
+  --sdui-space-lg: 1.25rem;
+  --sdui-space-xl: 1.75rem;
+
+  --sdui-radius: 10px;
+  --sdui-radius-sm: 6px;
+  --sdui-radius-xs: 4px;
+
+  --sdui-border: 1px solid var(--mantine-color-gray-3);
+  --sdui-border-subtle: 1px solid var(--mantine-color-gray-2);
+  --sdui-surface: var(--mantine-color-body);
+  --sdui-surface-muted: var(--mantine-color-gray-0);
+  --sdui-surface-raised: var(--mantine-color-white);
+  --sdui-text-muted: var(--mantine-color-dimmed);
+  --sdui-accent: var(--mantine-color-blue-6);
+  --sdui-accent-subtle: rgba(37, 99, 235, 0.06);
+  --sdui-accent-ring: rgba(37, 99, 235, 0.32);
+
+  --sdui-code-bg: #fafbfc;
+  --sdui-code-fg: #344054;
+  --sdui-code-border: #e8eaed;
+  --sdui-code-key: #175cd3;
+  --sdui-code-string: #067647;
+
+  --sdui-panel-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 0 0 1px rgba(16, 24, 40, 0.03);
+  --sdui-elevated-shadow: 0 4px 16px rgba(16, 24, 40, 0.06);
+}
+
+[data-mantine-color-scheme='dark'] {
+  --sdui-border: 1px solid var(--mantine-color-dark-4);
+  --sdui-border-subtle: 1px solid var(--mantine-color-dark-5);
+  --sdui-surface-muted: var(--mantine-color-dark-8);
+  --sdui-surface-raised: var(--mantine-color-dark-7);
+  --sdui-accent-subtle: rgba(59, 130, 246, 0.1);
+  --sdui-accent-ring: rgba(59, 130, 246, 0.38);
+  --sdui-code-bg: #0d1017;
+  --sdui-code-fg: #d0d5dd;
+  --sdui-code-border: #2a2f3a;
+  --sdui-code-key: #84adff;
+  --sdui-code-string: #6ce9a6;
+  --sdui-panel-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sdui-font);
+  font-size: var(--sdui-text-base);
+  line-height: var(--sdui-lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sdui-label {
+  font-size: var(--sdui-text-xs);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sdui-text-muted);
+  line-height: var(--sdui-lh-tight);
+}
+
+.sdui-title {
+  font-weight: 600;
+  line-height: var(--sdui-lh-tight);
+  letter-spacing: -0.02em;
+}
+
+.sdui-body {
+  font-size: var(--sdui-text-md);
+  line-height: var(--sdui-lh-relaxed);
+  color: var(--sdui-text-muted);
+}
+
+.sdui-caption {
+  font-size: var(--sdui-text-xs);
+  line-height: var(--sdui-lh-normal);
+  color: var(--sdui-text-muted);
+}
+
+.sdui-mono {
+  font-family: var(--sdui-mono);
+  font-size: var(--sdui-text-xs);
+}
+
+.app-main {
+  background: var(--sdui-surface-muted);
+  min-height: 100vh;
+}
+
+.app-header {
+  background: var(--sdui-surface-raised);
+  border-bottom: var(--sdui-border);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--sdui-accent);
+  color: white;
+  padding: 8px 16px;
+  z-index: 10000;
+  text-decoration: none;
+  font-size: var(--sdui-text-sm);
+  border-radius: var(--sdui-radius-sm);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.sdui-surface {
+  background: var(--sdui-surface-raised);
+  border: var(--sdui-border);
+  border-radius: var(--sdui-radius);
+}
+
+.sdui-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sdui-space-xs);
+}
+
+@media (max-width: 576px) {
+  .sdui-page-actions {
+    width: 100%;
+  }
+  .sdui-page-actions button {
+    flex: 1 1 auto;
+  }
+}
+
+[data-sdui-node-id] {
+  transition: box-shadow 0.12s ease;
+  border-radius: var(--sdui-radius-sm);
+}
+
+[data-sdui-node-id]:hover {
+  box-shadow: 0 0 0 1px var(--sdui-accent-ring);
+  cursor: pointer;
+}
+
+[data-sdui-selected='true'] {
+  box-shadow: 0 0 0 2px var(--sdui-accent) !important;
+}

@@ -1,0 +1,8 @@
+.nodeWrap {
+  position: relative;
+  border-radius: var(--sdui-radius-sm);
+}
+
+.selected {
+  border-radius: var(--sdui-radius-sm);
+}

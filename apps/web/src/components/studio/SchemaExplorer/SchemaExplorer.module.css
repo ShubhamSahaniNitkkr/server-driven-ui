@@ -1,0 +1,14 @@
+.codePanel {
+  overflow: hidden;
+  background: var(--sdui-code-bg);
+}
+
+.code {
+  font-family: var(--sdui-mono) !important;
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+  background: transparent !important;
+  color: var(--sdui-code-fg) !important;
+  padding: 16px !important;
+  white-space: pre !important;
+}

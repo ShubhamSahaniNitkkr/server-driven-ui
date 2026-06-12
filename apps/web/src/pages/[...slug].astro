@@ -1,0 +1,18 @@
+---
+import AppShell from '../layouts/AppShell.astro';
+import App from '../islands/App';
+
+export function getStaticPaths() {
+  const routes = ['showcase', 'dashboard', 'users', 'orders', 'reports', 'settings'];
+  return routes.map((route) => ({
+    params: { slug: route },
+  }));
+}
+
+const { slug } = Astro.params;
+const path = `/${slug}`;
+---
+
+<AppShell title="Server Driven UI Platform">
+  <App client:only="react" initialPath={path} />
+</AppShell>

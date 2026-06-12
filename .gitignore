@@ -1,0 +1,12 @@
+node_modules
+dist
+.astro
+.turbo
+coverage
+*.db
+*.db-journal
+.env
+.env.local
+.DS_Store
+playwright-report
+test-results

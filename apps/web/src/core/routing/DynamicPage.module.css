@@ -1,0 +1,33 @@
+.studio {
+  padding: var(--sdui-space-md);
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.selectable {
+  border-radius: var(--sdui-radius-sm);
+}
+
+.hero {
+  background: var(--sdui-surface-raised);
+}
+
+.title {
+  font-size: var(--sdui-text-lg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: var(--sdui-lh-tight);
+}
+
+.description {
+  font-size: var(--sdui-text-md);
+  color: var(--sdui-text-muted);
+  line-height: var(--sdui-lh-relaxed);
+}
+
+@media (max-width: 576px) {
+  .studio {
+    padding: var(--sdui-space-sm);
+  }
+}

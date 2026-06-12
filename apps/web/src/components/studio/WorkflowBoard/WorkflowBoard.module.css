@@ -1,0 +1,15 @@
+.root {
+  background: var(--sdui-surface);
+  border: var(--sdui-border);
+}
+
+.stage {
+  background: var(--sdui-surface);
+  border: var(--sdui-border);
+}
+
+@media (max-width: 576px) {
+  .root {
+    padding: var(--sdui-space-md) !important;
+  }
+}

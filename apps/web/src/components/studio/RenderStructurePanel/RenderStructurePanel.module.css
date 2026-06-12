@@ -1,0 +1,55 @@
+.panel,
+.empty {
+  flex-shrink: 0;
+  padding: var(--sdui-space-sm) var(--sdui-space-lg);
+  background: var(--sdui-surface-raised);
+  border-bottom: var(--sdui-border);
+}
+
+.breadcrumbs {
+  flex-wrap: wrap;
+}
+
+.crumb {
+  cursor: pointer;
+}
+
+.crumb:hover {
+  text-decoration: underline;
+}
+
+.flow {
+  background: var(--sdui-surface-muted);
+  border: var(--sdui-border-subtle);
+  border-radius: var(--sdui-radius-sm);
+  padding: var(--sdui-space-xs) var(--sdui-space-sm);
+}
+
+.flowText {
+  line-height: 1.55;
+}
+
+.mono {
+  font-family: var(--sdui-mono);
+  font-size: var(--sdui-text-xs);
+  color: var(--mantine-color-text);
+}
+
+.arrow {
+  color: var(--sdui-text-muted);
+}
+
+.code {
+  font-family: var(--sdui-mono);
+  font-size: var(--sdui-text-xs);
+  padding: 1px 6px;
+  background: var(--sdui-surface-muted);
+  border-radius: var(--sdui-radius-xs);
+  border: var(--sdui-border-subtle);
+}
+
+.childBadge {
+  cursor: pointer;
+  font-family: var(--sdui-mono);
+  text-transform: none;
+}

@@ -1,0 +1,32 @@
+.root {
+  background: var(--sdui-surface);
+  border: var(--sdui-border);
+}
+
+.step {
+  background: var(--sdui-surface);
+  border: var(--sdui-border);
+  transition: box-shadow 150ms ease;
+}
+
+.step:hover {
+  box-shadow: var(--sdui-panel-shadow);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--sdui-radius-sm);
+  background: var(--sdui-surface-muted);
+  color: var(--sdui-text-muted);
+  flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+  .root {
+    padding: var(--sdui-space-md) !important;
+  }
+}

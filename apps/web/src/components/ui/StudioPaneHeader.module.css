@@ -1,0 +1,10 @@
+.header {
+  flex-shrink: 0;
+  padding: var(--sdui-space-md) var(--sdui-space-lg);
+  background: var(--sdui-surface-raised);
+  border-bottom: var(--sdui-border);
+}
+
+.icon {
+  flex-shrink: 0;
+}

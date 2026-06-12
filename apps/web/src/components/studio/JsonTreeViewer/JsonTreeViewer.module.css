@@ -1,0 +1,74 @@
+.root {
+  font-family: var(--sdui-mono);
+  font-size: var(--sdui-text-xs);
+  line-height: 1.65;
+  padding: var(--sdui-space-md);
+}
+
+.line,
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 22px;
+  color: var(--sdui-code-fg);
+}
+
+.toggle {
+  width: 100%;
+  text-align: left;
+  border-radius: var(--sdui-radius-xs);
+  color: var(--sdui-text-muted);
+}
+
+.toggle:hover {
+  background: var(--sdui-accent-subtle);
+}
+
+.key { color: var(--sdui-code-key); }
+.primitive { color: var(--sdui-code-string); }
+.null, .bracket { color: var(--sdui-text-muted); }
+
+.schemaRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  margin: 1px 0;
+  padding: 4px 8px 4px 0;
+  border-radius: var(--sdui-radius-xs);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.1s ease, border-color 0.1s ease;
+}
+
+.schemaRow:hover {
+  background: var(--sdui-accent-subtle);
+}
+
+.selected {
+  background: var(--sdui-accent-subtle) !important;
+  border-color: var(--sdui-accent) !important;
+}
+
+.chevronBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sdui-text-muted);
+  padding: 2px;
+}
+
+.typeBadge {
+  flex-shrink: 0;
+  font-family: var(--sdui-mono);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.nodeId {
+  color: var(--mantine-color-text);
+  font-weight: 500;
+  font-family: var(--sdui-mono);
+  word-break: break-all;
+}
